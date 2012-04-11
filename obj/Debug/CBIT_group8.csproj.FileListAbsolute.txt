@@ -1,0 +1,6 @@
+c:\users\nair.rcc\documents\visual studio 2010\Projects\CBIT_group8\CBIT_group8\bin\CBIT_group8.dll
+c:\users\nair.rcc\documents\visual studio 2010\Projects\CBIT_group8\CBIT_group8\bin\CBIT_group8.pdb
+c:\users\nair.rcc\documents\visual studio 2010\Projects\CBIT_group8\CBIT_group8\obj\Debug\ResolveAssemblyReference.cache
+c:\users\nair.rcc\documents\visual studio 2010\Projects\CBIT_group8\CBIT_group8\obj\Debug\CBIT_group8.dll
+c:\users\nair.rcc\documents\visual studio 2010\Projects\CBIT_group8\CBIT_group8\obj\Debug\CBIT_group8.pdb
+c:\users\nair.rcc\documents\visual studio 2010\Projects\CBIT_group8\CBIT_group8\bin\mysql.data.dll
