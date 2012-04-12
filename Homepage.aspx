@@ -11,6 +11,11 @@
     <div>
     Home page for 
     <asp:Label runat="server" ID="lblName" ></asp:Label>
+    &nbsp;CORKBOARDIT<br />
+        <br />
+        Recent CorkBoard Updates
+        <asp:Button ID="btnPopularTags" Text="Popular Tags" runat="server" />
+
     </div>
     </form>
 </body>
