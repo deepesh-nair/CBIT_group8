@@ -9,13 +9,38 @@
 <body>
     <form id="form1" runat="server">
     <div>
-    Home page for 
-    <asp:Label runat="server" ID="lblName" ></asp:Label>
-    &nbsp;CORKBOARDIT<br />
-        <br />
+        Home page for <asp:Label runat="server" ID="lblName" ></asp:Label>
+    </div>
+    <br />
+    <div>
+        CORKBOARDIT
+    </div>
+    <br />
+    <div>
         Recent CorkBoard Updates
-        <asp:Button ID="btnPopularTags" Text="Tags" runat="server" />
-
+        <asp:Button ID="btnPopularTags" Text="Popular Tags" runat="server" />
+        <br />
+        <br />
+        <asp:GridView ID="gvRecentCB" runat="server" ShowHeader="false" 
+        onrowdatabound="gvRecentCB_RowDataBound" >        
+        </asp:GridView>
+    </div>
+    <br />
+    <div>
+        My CorkBoards
+        <asp:Button ID="btnAddCB" runat="server" Text="Add CorkBoard" />
+        <br />
+        <br />
+    </div>
+    <div>
+        <asp:GridView ID="gvMyCB" runat="server" ShowHeader="false" 
+            onrowdatabound="gvMyCB_RowDataBound">
+        </asp:GridView>
+        <br />
+    </div>
+    <div>
+    <asp:TextBox ID="txtSearch" runat="server"></asp:TextBox>
+    <asp:Button ID="btnSearch" runat="server" Text="PushPin Search" />
     </div>
     </form>
 </body>
