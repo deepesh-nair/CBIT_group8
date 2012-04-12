@@ -14,7 +14,7 @@
     &nbsp;CORKBOARDIT<br />
         <br />
         Recent CorkBoard Updates
-        <asp:Button ID="btnPopularTags" Text="Popular Tags" runat="server" />
+        <asp:Button ID="btnPopularTags" Text="Tags" runat="server" />
 
     </div>
     </form>
