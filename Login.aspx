@@ -12,10 +12,14 @@
         CORKBOARDIT<br /><br />
         <asp:Label ID="lblEmail" Text="Email" runat="server"></asp:Label>
         &nbsp;&nbsp;&nbsp;
-        <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox><br /><br />
+        <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtEmail" ErrorMessage="Email is mandatory"></asp:RequiredFieldValidator>
+        <br /><br />
         <asp:Label ID="lblPin" Text="PIN" runat="server"></asp:Label>
         &nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:TextBox ID="txtPIN" runat="server" TextMode="Password"></asp:TextBox><br /><br />
+        <asp:TextBox ID="txtPIN" runat="server" TextMode="Password"></asp:TextBox>
+        <asp:RequiredFieldValidator runat="server" ControlToValidate="txtPIN" ErrorMessage="PIN is mandatory"></asp:RequiredFieldValidator>
+        <br /><br />
         <asp:Label ID="lblResult" runat="server" ForeColor="Red"></asp:Label>
         <br />
         <br />
