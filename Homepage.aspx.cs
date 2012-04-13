@@ -65,5 +65,10 @@ namespace CBIT_group8
                 e.Row.Attributes.Add("onmousedown", "if(event.button==0){window.location='ViewCorkboard.aspx?user=" + user + "&CBtitle=" + myCB.Rows[e.Row.RowIndex][0].ToString() + "'}");
             }
         }
+
+        protected void btnAddCB_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AddNewCorkboard.aspx?user=" + user);
+        }
     }
 }
