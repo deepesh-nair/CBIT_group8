@@ -19,8 +19,11 @@ namespace CBIT_group8
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            user = Request.QueryString["user"];
-            
+            if ((bool)Session["isLoggedIn"] == false)
+                Response.Redirect("Login.aspx");
+            //user = Request.QueryString["user"];
+            user = Session["user"].ToString();
+
             string sql = "SELECT name FROM `user` WHERE email='" + user + "';";
             DataTable dt = _mysqlhandler.SelectFromDB(sql);
             lblName.Text = dt.Rows[0][0].ToString();
