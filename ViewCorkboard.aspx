@@ -8,8 +8,23 @@
 </head>
 <body>
     <form id="form1" runat="server">
+    <h2>CORKBOARDIT</h2>
     <div>
-    
+        <asp:Label ID="lblName" runat="server"></asp:Label>
+        &nbsp;
+        <asp:Button ID="btnFollow" Text="Follow" runat="server" />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:Label ID="lblCategory" runat="server"></asp:Label>
+        <br />
+        <br />
+        <asp:Label ID="lblCBtitle" runat="server"></asp:Label>
+        <br />
+        Last Updated <asp:Label ID="lblDateTime" runat="server"></asp:Label>
+        &nbsp;&nbsp;&nbsp;
+        <asp:Button ID="btnAddPp" runat="server" Text="Add Pushpin" />
+    </div>
+    <div>
+        <asp:PlaceHolder ID="phImageHolder" runat="server"></asp:PlaceHolder>
     </div>
     </form>
 </body>

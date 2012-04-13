@@ -57,7 +57,7 @@ namespace CBIT_group8
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
-                e.Row.Attributes.Add("onmousedown", "if(event.button==0){window.location='ViewCorkboard.aspx?user="+recentCB.Rows[e.Row.RowIndex][2].ToString()+"&CBtitle="+recentCB.Rows[e.Row.RowIndex][0].ToString()+"'}");
+                e.Row.Attributes.Add("onmousedown", "if(event.button==0){window.location='ViewCorkboard.aspx?CBowner="+recentCB.Rows[e.Row.RowIndex][2].ToString()+"&CBtitle="+recentCB.Rows[e.Row.RowIndex][0].ToString()+"'}");
             }
         }
 
@@ -65,7 +65,7 @@ namespace CBIT_group8
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
-                e.Row.Attributes.Add("onmousedown", "if(event.button==0){window.location='ViewCorkboard.aspx?user=" + user + "&CBtitle=" + myCB.Rows[e.Row.RowIndex][0].ToString() + "'}");
+                e.Row.Attributes.Add("onmousedown", "if(event.button==0){window.location='ViewCorkboard.aspx?CBowner=" + user + "&CBtitle=" + myCB.Rows[e.Row.RowIndex][0].ToString() + "'}");
             }
         }
 

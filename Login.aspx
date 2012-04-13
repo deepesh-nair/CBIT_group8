@@ -9,7 +9,7 @@
 <body>
     <form id="form1" runat="server">
     <div>
-        CORKBOARDIT<br /><br />
+        <h2>CORKBOARDIT</h2><br /><br />
         <asp:Label ID="lblEmail" Text="Email" runat="server"></asp:Label>
         &nbsp;&nbsp;&nbsp;
         <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>

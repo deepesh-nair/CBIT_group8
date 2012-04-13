@@ -9,12 +9,11 @@
 <body>
     <form id="form1" runat="server">
     <div>
+        <h2>CORKBOARDIT</h2>
+        <br />
         Home page for <asp:Label runat="server" ID="lblName" ></asp:Label>
     </div>
     <br />
-    <div>
-        CORKBOARDIT
-    </div>
     <br />
     <div>
         Recent CorkBoard Updates
