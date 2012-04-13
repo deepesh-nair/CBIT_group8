@@ -31,7 +31,7 @@ namespace CBIT_group8
             {
                 Session["user"] = txtEmail.Text;
                 Session["isLoggedIn"] = true;
-                Response.Redirect("Homepage.aspx?user=" + txtEmail.Text);                
+                Response.Redirect("Homepage.aspx");                
             }
             else
                 lblResult.Text = "Login Failed! Please try again.";
