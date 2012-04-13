@@ -40,6 +40,7 @@
     </div>
     <div>
     <asp:TextBox ID="txtSearch" runat="server"></asp:TextBox>
+    &nbsp;
     <asp:Button ID="btnSearch" runat="server" Text="PushPin Search" />
     </div>
     </form>

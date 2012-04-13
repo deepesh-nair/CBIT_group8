@@ -18,7 +18,8 @@ namespace CBIT_group8
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Session["user"] = string.Empty;
+            Session["isLoggedIn"] = false;
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)
@@ -26,8 +27,12 @@ namespace CBIT_group8
             string sql = "SELECT * FROM user WHERE email ='"+txtEmail.Text+"' AND pin='"+txtPIN.Text+"';";
             DataTable result = _mysqlhandler.SelectFromDB(sql);
 
-            if (result.Rows.Count > 0) 
-                Response.Redirect("Homepage.aspx?user=" + txtEmail.Text);
+            if (result.Rows.Count > 0)
+            {
+                Session["user"] = txtEmail.Text;
+                Session["isLoggedIn"] = true;
+                Response.Redirect("Homepage.aspx?user=" + txtEmail.Text);                
+            }
             else
                 lblResult.Text = "Login Failed! Please try again.";
         }
