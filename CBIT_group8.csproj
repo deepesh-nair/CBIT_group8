@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AddNewCorkboard.aspx" />
+    <Content Include="AddPushpin.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Homepage.aspx" />
     <Content Include="Login.aspx" />
@@ -80,6 +81,13 @@
     </Compile>
     <Compile Include="AddNewCorkboard.aspx.designer.cs">
       <DependentUpon>AddNewCorkboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddPushpin.aspx.cs">
+      <DependentUpon>AddPushpin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddPushpin.aspx.designer.cs">
+      <DependentUpon>AddPushpin.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <SubType>ASPXCodeBehind</SubType>

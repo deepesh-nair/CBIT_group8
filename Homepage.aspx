@@ -28,7 +28,8 @@
     <br />
     <div>
         My CorkBoards
-        <asp:Button ID="btnAddCB" runat="server" Text="Add CorkBoard" />
+        <asp:Button ID="btnAddCB" runat="server" Text="Add CorkBoard" 
+            onclick="btnAddCB_Click" />
         <br />
         <br />
     </div>
