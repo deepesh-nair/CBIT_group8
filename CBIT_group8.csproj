@@ -66,6 +66,7 @@
     <Content Include="Scripts\jquery-1.4.1.js" />
     <Content Include="Scripts\jquery-1.4.1.min.js" />
     <Content Include="ViewCorkboard.aspx" />
+    <Content Include="ViewPushpin.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -117,6 +118,13 @@
     </Compile>
     <Compile Include="ViewCorkboard.aspx.designer.cs">
       <DependentUpon>ViewCorkboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewPushpin.aspx.cs">
+      <DependentUpon>ViewPushpin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewPushpin.aspx.designer.cs">
+      <DependentUpon>ViewPushpin.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

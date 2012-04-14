@@ -24,8 +24,15 @@
         <asp:Button ID="btnAddPp" runat="server" Text="Add Pushpin" />
     </div>
     <div>
+    <br /><br />
         <asp:PlaceHolder ID="phImageHolder" runat="server"></asp:PlaceHolder>
+        <br /><br />
     </div>
-    </form>
+      <p>
+        This Corkboard has <asp:Label ID="lblWatchers" runat="server"></asp:Label> &nbsp;Watchers
+        &nbsp;
+        <asp:Button ID="btnWatch" runat="server" Text="Watch" />
+    </p>
+    </form>  
 </body>
 </html>

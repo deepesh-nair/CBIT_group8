@@ -10,7 +10,7 @@
 namespace CBIT_group8 {
     
     
-    public partial class ViewCorkboard {
+    public partial class ViewPushpin {
         
         /// <summary>
         /// form1 control.
@@ -40,24 +40,6 @@ namespace CBIT_group8 {
         protected global::System.Web.UI.WebControls.Button btnFollow;
         
         /// <summary>
-        /// lblCategory control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCategory;
-        
-        /// <summary>
-        /// lblCBtitle control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCBtitle;
-        
-        /// <summary>
         /// lblDateTime control.
         /// </summary>
         /// <remarks>
@@ -67,39 +49,84 @@ namespace CBIT_group8 {
         protected global::System.Web.UI.WebControls.Label lblDateTime;
         
         /// <summary>
-        /// btnAddPp control.
+        /// hlCbtitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAddPp;
+        protected global::System.Web.UI.WebControls.HyperLink hlCbtitle;
         
         /// <summary>
-        /// phImageHolder control.
+        /// hlImage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder phImageHolder;
+        protected global::System.Web.UI.WebControls.HyperLink hlImage;
         
         /// <summary>
-        /// lblWatchers control.
+        /// lblDesc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblWatchers;
+        protected global::System.Web.UI.WebControls.Label lblDesc;
         
         /// <summary>
-        /// btnWatch control.
+        /// lblTags control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnWatch;
+        protected global::System.Web.UI.WebControls.Label lblTags;
+        
+        /// <summary>
+        /// lblLikes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblLikes;
+        
+        /// <summary>
+        /// btnLike control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnLike;
+        
+        /// <summary>
+        /// txtComment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtComment;
+        
+        /// <summary>
+        /// btnComment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnComment;
+        
+        /// <summary>
+        /// gvComments control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvComments;
     }
 }
