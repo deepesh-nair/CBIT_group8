@@ -11,45 +11,72 @@ namespace CBIT_group8
 {
     public partial class ViewPushpin : System.Web.UI.Page
     {
-        public string CBowner, CBtitle, PPlink;
+        public string CBowner, CBtitle, PPlink, user;
         mysqlhandler _mysqlhandler = new mysqlhandler();
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            
+            user = Session["user"].ToString();
             CBowner = Request.QueryString["CBowner"];
             CBtitle = Request.QueryString["CBtitle"];
-            PPlink = Request.QueryString["link"].Replace(" ","%20");
+            PPlink = Request.QueryString["link"].Replace(" ", "%20");
 
-            //Get CBowner name
-            string sql = "SELECT name FROM user WHERE email='" + CBowner + "';";
-            lblName.Text = (_mysqlhandler.SelectFromDB(sql).Rows[0][0]).ToString();
+            if (!IsPostBack)
+            {
+                //Get CBowner name
+                string sql = "SELECT name FROM user WHERE email='" + CBowner + "';";
+                lblName.Text = (_mysqlhandler.SelectFromDB(sql).Rows[0][0]).ToString();
 
-            //Get Pushpin DateTime
-            sql = "SELECT datetime FROM pushpin WHERE CBowner='"+CBowner+"' AND CBtitle='"+CBtitle+"' AND link='"+PPlink+"';";
-            lblDateTime.Text = (_mysqlhandler.SelectFromDB(sql).Rows[0][0]).ToString();
+                //Get Pushpin DateTime
+                sql = "SELECT datetime FROM pushpin WHERE CBowner='" + CBowner + "' AND CBtitle='" + CBtitle + "' AND link='" + PPlink + "';";
+                lblDateTime.Text = (_mysqlhandler.SelectFromDB(sql).Rows[0][0]).ToString();
 
-            hlCbtitle.Text = CBtitle;
-            hlCbtitle.NavigateUrl = "ViewCorkboard.aspx?CBowner="+CBowner+"&CBtitle="+CBtitle;
+                hlCbtitle.Text = CBtitle;
+                hlCbtitle.NavigateUrl = "ViewCorkboard.aspx?CBowner=" + CBowner + "&CBtitle=" + CBtitle;
 
-            hlImage.ImageUrl = PPlink;
-            hlImage.NavigateUrl = PPlink;
+                hlImage.ImageUrl = PPlink;
+                hlImage.NavigateUrl = PPlink;
 
-            //get description
-            sql = "SELECT description FROM pushpin WHERE CBowner='"+CBowner+"' AND CBtitle='"+CBtitle+"' AND link='"+PPlink+"';";
-            lblDesc.Text = (_mysqlhandler.SelectFromDB(sql).Rows[0][0]).ToString();
+                //get description
+                sql = "SELECT description FROM pushpin WHERE CBowner='" + CBowner + "' AND CBtitle='" + CBtitle + "' AND link='" + PPlink + "';";
+                lblDesc.Text = (_mysqlhandler.SelectFromDB(sql).Rows[0][0]).ToString();
 
-            //get tags
-            sql = "SELECT tag FROM tags WHERE CBowner = '"+CBowner+"' AND CBtitle = '"+CBtitle+"' AND link = '"+PPlink+"' ORDER BY tag;";
-            DataTable dttags = _mysqlhandler.SelectFromDB(sql);
-            lblTags.Text = getStringFromTable(dttags);
+                //get tags
+                sql = "SELECT tag FROM tags WHERE CBowner = '" + CBowner + "' AND CBtitle = '" + CBtitle + "' AND link = '" + PPlink + "' ORDER BY tag;";
+                DataTable dttags = _mysqlhandler.SelectFromDB(sql);
+                lblTags.Text = getStringFromTable(dttags);
+
+                getLikes();
+
+                getComments();
+            }
+        }
+
+        void getLikes()
+        {
+            //Check if user and CBowner are same
+            if(user==CBowner)          
+                btnLike.Enabled = false;            
+            
+            //check if user already Likes this PP
+            string sql = "SELECT * FROM likes l WHERE l.email='" + user + "' AND l.CBowner = '" + CBowner + "' AND l.CBtitle = '" + CBtitle + "' AND l.link = '" + PPlink + "';";
+            if ((_mysqlhandler.SelectFromDB(sql).Rows.Count > 0))
+                btnLike.Text = "Unlike";
+            else
+                btnLike.Text = "Like";
 
             //get Likes
-            sql = "	SELECT u.name FROM likes l JOIN user u ON l.email = u.email WHERE l.CBowner = '"+CBowner+"' AND l.CBtitle = '"+CBtitle+"' AND l.link = '"+PPlink+"';";
+            sql = "	SELECT u.name FROM likes l JOIN user u ON l.email = u.email WHERE l.CBowner = '" + CBowner + "' AND l.CBtitle = '" + CBtitle + "' AND l.link = '" + PPlink + "';";
             DataTable dtLikes = _mysqlhandler.SelectFromDB(sql);
             lblLikes.Text = getStringFromTable(dtLikes);
+        }
 
+        void getComments()
+        {
+            txtComment.Text = string.Empty;
             //getComments
-            sql = "SELECT c.comment, c.datetime, u.name FROM comments c JOIN user u ON u.email = c.email WHERE c.CBowner = '"+CBowner+"' AND c.CBtitle = '"+CBtitle+"' AND c.link = '"+PPlink+"' ORDER BY c.datetime DESC;";
+            string sql = "SELECT c.comment, c.datetime, u.name FROM comments c JOIN user u ON u.email = c.email WHERE c.CBowner = '" + CBowner + "' AND c.CBtitle = '" + CBtitle + "' AND c.link = '" + PPlink + "' ORDER BY c.datetime DESC;";
             DataTable dtcomments = _mysqlhandler.SelectFromDB(sql);
             DataTable datasrc = new DataTable();
             datasrc.Columns.Add();
@@ -77,5 +104,27 @@ namespace CBIT_group8
             }
             return csv;
         }
+
+        protected void btnComment_Click(object sender, EventArgs e)
+        {           
+            string datetimeFormat = "yyyy-MM-dd HH:mm:ss";
+            string sql = "INSERT INTO  `comments` (email ,CBowner ,CBtitle ,link,datetime,comment) VALUES ('"+user+"',  '"+CBowner+"',  '"+CBtitle+"', '"+PPlink+"', '"+DateTime.Now.ToString(datetimeFormat)+"', '"+txtComment.Text+"');";
+            _mysqlhandler.InsertIntoDB(sql);
+            getComments();
+
+        }
+
+        protected void btnLike_Click(object sender, EventArgs e)
+        {
+            string sql = string.Empty;
+            if (btnLike.Text == "Like")
+                sql = "INSERT INTO  likes (email ,CBowner ,CBtitle ,link) VALUES ('" + user + "',  '" + CBowner + "',  '" + CBtitle + "', '" + PPlink + "');";
+            else
+                sql = "DELETE FROM likes WHERE email='" + user + "' AND CBowner = '" + CBowner + "' AND CBtitle = '" + CBtitle + "' AND link = '" + PPlink + "';";
+            _mysqlhandler.InsertIntoDB(sql);
+            getLikes();
+        }
+
+
     }
 }
