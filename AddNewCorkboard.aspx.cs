@@ -21,11 +21,12 @@ namespace CBIT_group8
             DataTable result = _mysqlhandler.SelectFromDB(sqlCategory);
             foreach(DataRow r in result.Rows)
                 ddlCategory.Items.Add(r[0].ToString());
-            user = Request.QueryString["user"];
+            user = Session["user"].ToString();
         }
 
         protected void btnAdd_Click(object sender, EventArgs e)
         {
+
             string sql = "INSERT INTO  corkboard (owner,title,lastupdate,category) VALUES ('" + user +
                     "','" + txtTitle.Text + "',NULL,'" + ddlCategory.SelectedItem.ToString() + "');";
             _mysqlhandler.InsertIntoDB(sql);

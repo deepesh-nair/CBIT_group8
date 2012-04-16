@@ -12,7 +12,8 @@
     <div>
         <asp:Label ID="lblName" runat="server"></asp:Label>
         &nbsp;
-        <asp:Button ID="btnFollow" Text="Follow" runat="server" />
+        <asp:Button ID="btnFollow" Text="Follow" runat="server" 
+            onclick="btnFollow_Click" />
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:Label ID="lblCategory" runat="server"></asp:Label>
         <br />
@@ -21,7 +22,8 @@
         <br />
         Last Updated <asp:Label ID="lblDateTime" runat="server"></asp:Label>
         &nbsp;&nbsp;&nbsp;
-        <asp:Button ID="btnAddPp" runat="server" Text="Add Pushpin" />
+        <asp:Button ID="btnAddPp" runat="server" Text="Add Pushpin" 
+            onclick="btnAddPp_Click" />
     </div>
     <div>
     <br /><br />
@@ -31,7 +33,7 @@
       <p>
         This Corkboard has <asp:Label ID="lblWatchers" runat="server"></asp:Label> &nbsp;Watchers
         &nbsp;
-        <asp:Button ID="btnWatch" runat="server" Text="Watch" />
+        <asp:Button ID="btnWatch" runat="server" Text="Watch" onclick="btnWatch_Click" />
     </p>
     </form>  
 </body>

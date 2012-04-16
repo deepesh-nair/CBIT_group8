@@ -32,6 +32,35 @@ namespace CBIT_group8
             sql = "SELECT datetime from pushpin WHERE CBowner='"+CBowner+"' AND CBtitle='"+Cbtitle+"' ORDER BY datetime DESC LIMIT 1;";
             lblDateTime.Text = (_mysqlhandler.SelectFromDB(sql).Rows[0][0]).ToString();
 
+            //Check if user and CBowner is same 
+            if (Session["user"].ToString() == CBowner)
+                btnAddPp.Enabled = true;
+            else
+                btnAddPp.Enabled = false;
+
+            // Determine if the user is already following the CorkBoard owner
+            sql = "SELECT * FROM follow WHERE email = '" + User + "' AND follows = '" + lblName.Text + "';";
+            DataTable resultFollow = _mysqlhandler.SelectFromDB(sql);
+            
+            // If he is, then disable the Follow button and make it read Following 
+            if (resultFollow.Rows.Count > 0)
+            {
+                btnFollow.Text = "Following";
+                btnFollow.Enabled = false;
+            }
+
+            // Determine if the user is already following the CorkBoard 
+            sql = "SELECT * FROM watchList WHERE watcherEmail = '" + User + "' AND CBowner = '" + lblName.Text + 
+                "' AND Cbtitle = '" + lblCBtitle.Text + "';";
+            DataTable resultWatch = _mysqlhandler.SelectFromDB(sql);
+            
+            // If he is, then disable the Watch button and make it read watching 
+            if (resultWatch.Rows.Count > 0)
+            {
+                btnWatch.Text = "Watching";
+                btnWatch.Enabled = false;
+            }
+
             sql = "SELECT link FROM pushpin WHERE CBowner='" + CBowner + "' AND CBtitle='" + Cbtitle + "';";
             DataTable links = _mysqlhandler.SelectFromDB(sql);
 
@@ -50,5 +79,34 @@ namespace CBIT_group8
             if (CBowner == Session["user"].ToString())
                 btnWatch.Enabled = false;
         }
+
+        protected void btnAddPp_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AddPushpin.aspx?CBtitle=" + Cbtitle);
+        }
+
+        protected void btnFollow_Click(object sender, EventArgs e)
+        {
+            string sql = "INSERT INTO follow (email, follows) VALUES ('" +
+                User + "','" + lblName.Text + "';";
+            _mysqlhandler.InsertIntoDB(sql);
+
+            // disable the Follow button and make it read Following
+            btnFollow.Text = "Following";
+            btnFollow.Enabled = false;
+        }
+
+        protected void btnWatch_Click(object sender, EventArgs e)
+        {
+
+            string sql = "INSERT INTO watchList (watcherEmail, CBowner, CBtitle) VALUES ('" +
+                User + "','" + lblName.Text + "','" + lblCBtitle.Text + "';";
+            _mysqlhandler.InsertIntoDB(sql);
+
+            btnWatch.Text = "Watching";
+            btnWatch.Enabled = false;
+        
+        }
+
     }
 }

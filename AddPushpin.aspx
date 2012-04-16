@@ -14,10 +14,19 @@
         <asp:Label runat = "server" ID = "lblCBName" Text = "G"></asp:Label>
         <br />
         <asp:Label runat = "server" ID = "lblURL" Text = "URL"></asp:Label>
+        <asp:TextBox runat = "server" ID = "txtURL"></asp:TextBox>
+        <asp:RequiredFieldValidator runat ="server" ControlToValidate = "txtURL" ErrorMessage = "URL is mandatory"></asp:RequiredFieldValidator>
         <br />
         <asp:Label runat = "server" ID = "lblDescription" Text = "Description"></asp:Label>
+        <asp:TextBox runat = "server" ID = "txtDesc" MaxLength="200" 
+            ontextchanged="txtDesc_TextChanged"></asp:TextBox>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat ="server" ControlToValidate = "txtDesc" ErrorMessage = "Description is mandatory"></asp:RequiredFieldValidator>
         <br />
         <asp:Label runat = "server" ID = "lblTags" Text = "Tags"></asp:Label>
+        <asp:TextBox runat = "server" ID = "txtTags"></asp:TextBox>
+        <br />
+        <asp:Button runat = "server" ID = "btnAdd" Text = "Add" 
+            onclick="btnAdd_Click" />
 
     </div>
     </form>
