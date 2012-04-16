@@ -57,6 +57,7 @@ namespace CBIT_group8
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
+                e.Row.Attributes.Add("onmouseover", "this.style.cursor='pointer'"); 
                 e.Row.Attributes.Add("onmousedown", "if(event.button==0){window.location='ViewCorkboard.aspx?CBowner="+recentCB.Rows[e.Row.RowIndex][2].ToString()+"&CBtitle="+recentCB.Rows[e.Row.RowIndex][0].ToString()+"'}");
             }
         }
@@ -65,13 +66,25 @@ namespace CBIT_group8
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
+                e.Row.Attributes.Add("onmouseover", "this.style.cursor='pointer'"); 
                 e.Row.Attributes.Add("onmousedown", "if(event.button==0){window.location='ViewCorkboard.aspx?CBowner=" + user + "&CBtitle=" + myCB.Rows[e.Row.RowIndex][0].ToString() + "'}");
+            
             }
         }
 
         protected void btnAddCB_Click(object sender, EventArgs e)
         {
             Response.Redirect("AddNewCorkboard.aspx?user=" + user);
+        }
+
+        protected void btnPopularTags_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("PopularTags.aspx");
+        }
+
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("PushpinSearch.aspx?keyword=" + txtSearch.Text);
         }
     }
 }

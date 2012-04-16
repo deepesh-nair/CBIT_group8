@@ -2,6 +2,23 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+<script language="javascript" type="text/javascript">
+
+
+    function SetButtonStatus(sender, target) {
+
+        if (sender.value.length >= 1)
+
+            document.getElementById(target).disabled = false;
+
+        else
+
+            document.getElementById(target).disabled = true;
+
+    }
+
+</script>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
@@ -17,7 +34,8 @@
     <br />
     <div>
         Recent CorkBoard Updates
-        <asp:Button ID="btnPopularTags" Text="Popular Tags" runat="server" />
+        <asp:Button ID="btnPopularTags" Text="Popular Tags" runat="server" 
+            onclick="btnPopularTags_Click" />
         <br />
         <br />
         <asp:GridView ID="gvRecentCB" runat="server" ShowHeader="false" 
@@ -39,9 +57,10 @@
         <br />
     </div>
     <div>
-    <asp:TextBox ID="txtSearch" runat="server"></asp:TextBox>
+    <asp:TextBox ID="txtSearch" runat="server" onkeyup="SetButtonStatus(this, 'btnSearch')"></asp:TextBox>
     &nbsp;
-    <asp:Button ID="btnSearch" runat="server" Text="PushPin Search" />
+    <asp:Button ID="btnSearch" runat="server" Text="PushPin Search" 
+            onclick="btnSearch_Click"  Enabled="false"/>
     </div>
     </form>
 </body>
