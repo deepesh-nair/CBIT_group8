@@ -18,8 +18,7 @@
         <asp:RequiredFieldValidator runat ="server" ControlToValidate = "txtURL" ErrorMessage = "URL is mandatory"></asp:RequiredFieldValidator>
         <br />
         <asp:Label runat = "server" ID = "lblDescription" Text = "Description"></asp:Label>
-        <asp:TextBox runat = "server" ID = "txtDesc" MaxLength="200" 
-            ontextchanged="txtDesc_TextChanged"></asp:TextBox>
+        <asp:TextBox runat = "server" ID = "txtDesc" MaxLength="200" ></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat ="server" ControlToValidate = "txtDesc" ErrorMessage = "Description is mandatory"></asp:RequiredFieldValidator>
         <br />
         <asp:Label runat = "server" ID = "lblTags" Text = "Tags"></asp:Label>

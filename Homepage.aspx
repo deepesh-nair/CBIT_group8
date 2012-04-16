@@ -26,9 +26,9 @@
 <body>
     <form id="form1" runat="server">
     <div>
-        <h2>CORKBOARDIT</h2>
+        <h2>CORKBOARDIT  <asp:HyperLink ID="HyperLink1" runat="server" ImageUrl="http://www.digitaldarkness.com/images/logout.bw.png" Text="Log Out" NavigateUrl="~/Login.aspx"></asp:HyperLink></h2>
         <br />
-        Home page for <asp:Label runat="server" ID="lblName" ></asp:Label>
+        Home page for <asp:Label runat="server" ID="lblName" ></asp:Label>       
     </div>
     <br />
     <br />

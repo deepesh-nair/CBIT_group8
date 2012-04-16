@@ -32,7 +32,8 @@ namespace CBIT_group8
         /// <param name="e"></param>
         protected void btnAdd_Click(object sender, EventArgs e)
         {
-            string sql = "SELECT * FROM pushpin WHERE CBowner ='" + user + "' AND CBtitle = '" +
+            string sql = string.Empty; 
+                /*= "SELECT * FROM pushpin WHERE CBowner ='" + user + "' AND CBtitle = '" +
                 CBtitle + "' AND link = '" + txtURL.Text + "';";
             DataTable result = _mysqlhandler.SelectFromDB(sql);
         
@@ -43,10 +44,10 @@ namespace CBIT_group8
                 txtDesc.Text = "";
                 txtDesc.Text = "";
                 Response.Write("<script type='text/javascript'>alert('This pushpin already exists!!');</script>");
-            }
+            }*/
 
-            else
-            {
+            //else
+            
                 string strTags = txtTags.Text;
 
                 // Removing spaces
@@ -54,18 +55,18 @@ namespace CBIT_group8
 
                 // Populate the string array with the comma separated values in the textbox.
                 string[] tags = strTags.Split(',');
-                int lenTagExceed = 1;
-                foreach (string tag in tags)
+                //int lenTagExceed = 1;
+                /*foreach (string tag in tags)
                 {
                     if (tag.Length > 20)
                     {
                         lenTagExceed = 0;
                         break;
                     }
-                }
+                }*/
 
-                if (lenTagExceed == 1)
-                {
+                //if (lenTagExceed == 1)
+                
                     // Store the length of the array in tagsLen
                     int tagsLen = tags.Length;
 
@@ -75,7 +76,7 @@ namespace CBIT_group8
                     // This string holds the SQL for insertion into the PushPin table
                     sql = "INSERT INTO pushpin (CBowner,CBtitle,link,datetime,description) VALUES ('" +
                         user + "','" + CBtitle + "','" + txtURL.Text + "','" + DateTime.Now.ToString(datetimeformat) + 
-                        "','" + txtDesc.Text + "';";
+                        "','" + txtDesc.Text + "');";
                     _mysqlhandler.InsertIntoDB(sql);
 
                     // Check for the number of tags inserted, 
@@ -89,11 +90,11 @@ namespace CBIT_group8
                         // and insert into the Tags table
                         foreach (string tag in tags)
                         {
-                            _mysqlhandler.InsertIntoDB(sql + tag + "';");
+                            _mysqlhandler.InsertIntoDB(sql + tag + "');");
                         }
                     }
-                }
-            }
+                    Response.Redirect("Homepage.aspx");
+                            
         }
     }
 }

@@ -28,20 +28,31 @@ namespace CBIT_group8
             DataTable dt = _mysqlhandler.SelectFromDB(sql);
             lblName.Text = dt.Rows[0][0].ToString();
 
-            sql = "SELECT DISTINCT CBtitle, name, email FROM (SELECT * FROM pushpin  WHERE CBOwner IN (SELECT Follows FROM follow WHERE email = '"+user+"') OR CBOwner = '"+user+"' OR CBTitle IN (SELECT CBTitle FROM watchList WHERE WatcherEmail = '"+user+"')) AS R INNER JOIN user ON R.CBowner=user.email ORDER BY DateTime DESC LIMIT 4;";
+            //string datetimeformat = "MMM d yyyy at HH:mm ";
+
+            sql = "SELECT DISTINCT CBtitle, name, email, datetime FROM (SELECT * FROM pushpin  WHERE CBOwner IN (SELECT Follows FROM follow WHERE email = '"+user+"') OR CBOwner = '"+user+"' OR CBTitle IN (SELECT CBTitle FROM watchList WHERE WatcherEmail = '"+user+"')) AS R INNER JOIN user ON R.CBowner=user.email ORDER BY DateTime DESC LIMIT 4;";
             recentCB = _mysqlhandler.SelectFromDB(sql);
             DataTable recentCBdatasrc = new DataTable();
             recentCBdatasrc.Columns.Add();
             for (int i=0; i<recentCB.Rows.Count;i++)
             {
                 recentCBdatasrc.Rows.Add();
-                recentCBdatasrc.Rows[i][0] = recentCB.Rows[i][0].ToString()+"\n\n Uploaded by "+recentCB.Rows[i][1].ToString();
+                recentCBdatasrc.Rows[i][0] = recentCB.Rows[i][0].ToString()+"\n\n Updated by "+recentCB.Rows[i][1].ToString()+" on " + recentCB.Rows[i][3].ToString();
             }
             gvRecentCB.DataSource = recentCBdatasrc;
             gvRecentCB.DataBind();
 
-            sql = "SELECT CBtitle, COUNT(*) FROM pushpin pp WHERE pp.CBowner='"+user+"' GROUP BY CBtitle ORDER BY CBtitle;";
+            sql = "SELECT title FROM corkboard WHERE owner='" + user + "' ORDER BY title;";
             myCB = _mysqlhandler.SelectFromDB(sql);
+            myCB.Columns.Add();
+            foreach (DataRow row in myCB.Rows)
+            {
+                sql = "SELECT link FROM pushpin WHERE CBowner='" + user + "' AND CBtitle='" + row[0].ToString() + "';";
+                row[1] = _mysqlhandler.SelectFromDB(sql).Rows.Count;
+            }
+            
+            //sql = "SELECT CBtitle, COUNT(*) FROM pushpin pp WHERE pp.CBowner='"+user+"' GROUP BY CBtitle ORDER BY CBtitle;";
+            //myCB = _mysqlhandler.SelectFromDB(sql);
             DataTable myCBdatasrc = new DataTable();
             myCBdatasrc.Columns.Add();
             for (int i = 0; i < myCB.Rows.Count; i++)
@@ -74,7 +85,7 @@ namespace CBIT_group8
 
         protected void btnAddCB_Click(object sender, EventArgs e)
         {
-            Response.Redirect("AddNewCorkboard.aspx?user=" + user);
+            Response.Redirect("AddNewCorkboard.aspx?");
         }
 
         protected void btnPopularTags_Click(object sender, EventArgs e)

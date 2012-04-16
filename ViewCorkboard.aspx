@@ -8,12 +8,17 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <h2>CORKBOARDIT</h2>
+    <asp:ScriptManager runat="server"></asp:ScriptManager>
+    <h2>CORKBOARDIT <asp:HyperLink ID="HyperLink1" ImageUrl="http://edmontonlocal.mobi/templates/mobiview/images/home.png" Text="Go to Homepage" runat="server" NavigateUrl="Homepage.aspx"></asp:HyperLink></h2>    
     <div>
         <asp:Label ID="lblName" runat="server"></asp:Label>
         &nbsp;
+        <asp:UpdatePanel runat="server">
+        <ContentTemplate>
         <asp:Button ID="btnFollow" Text="Follow" runat="server" 
             onclick="btnFollow_Click" />
+            </ContentTemplate>
+            </asp:UpdatePanel>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:Label ID="lblCategory" runat="server"></asp:Label>
         <br />
@@ -31,9 +36,13 @@
         <br /><br />
     </div>
       <p>
+        <asp:UpdatePanel runat="server">
+        <ContentTemplate>
         This Corkboard has <asp:Label ID="lblWatchers" runat="server"></asp:Label> &nbsp;Watchers
         &nbsp;
         <asp:Button ID="btnWatch" runat="server" Text="Watch" onclick="btnWatch_Click" />
+        </ContentTemplate>
+        </asp:UpdatePanel>
     </p>
     </form>  
 </body>

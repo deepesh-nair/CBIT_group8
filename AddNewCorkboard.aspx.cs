@@ -41,6 +41,8 @@ namespace CBIT_group8
                 sql = "INSERT INTO  privateCB (owner,title,password) VALUES ('" + user + "','" + txtTitle.Text + "','" + txtPassword.Text + "');";
                 _mysqlhandler.InsertIntoDB(sql);
             }
+
+            Response.Redirect("Homepage.aspx");
         }
 
         protected void rbPrivate_CheckedChanged(object sender, EventArgs e)
