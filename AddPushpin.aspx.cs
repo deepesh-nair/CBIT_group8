@@ -93,8 +93,7 @@ namespace CBIT_group8
                             _mysqlhandler.InsertIntoDB(sql + tag + "');");
                         }
                     }
-                    Response.Redirect("Homepage.aspx");
-                            
+                    Response.Redirect("ViewCorkboard.aspx?CBowner="+user+"&CBtitle="+CBtitle);                            
         }
     }
 }

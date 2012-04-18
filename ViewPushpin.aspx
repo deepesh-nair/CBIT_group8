@@ -29,11 +29,12 @@ document.getElementById(target).disabled = true;
     <form id="form1" runat="server">
     <asp:ScriptManager runat="server"></asp:ScriptManager>
     <div>
-    <h2>CORKBOARDIT</h2>
+    <h2>CORKBOARDIT <asp:HyperLink ID="HyperLink1" ImageUrl="http://edmontonlocal.mobi/templates/mobiview/images/home.png" Text="Go to Homepage" runat="server" NavigateUrl="Homepage.aspx"></asp:HyperLink></h2>
         <div>
             <asp:Label ID="lblName" runat="server"></asp:Label>
             &nbsp;
-            <asp:Button ID="btnFollow" Text="Follow" runat="server" />
+            <asp:Button ID="btnFollow" Text="Follow" runat="server" 
+                onclick="btnFollow_Click" />
             <br />
             Pinned <asp:Label ID="lblDateTime" runat="server"></asp:Label> &nbsp;on <asp:HyperLink ID="hlCbtitle" runat="server"></asp:HyperLink>
         </div>

@@ -54,6 +54,8 @@
         <asp:GridView ID="gvMyCB" runat="server" ShowHeader="false" 
             onrowdatabound="gvMyCB_RowDataBound">
         </asp:GridView>
+        <asp:Label ID="lblMyCB" runat="server"></asp:Label>
+        <br />
         <br />
     </div>
     <div>

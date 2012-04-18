@@ -28,6 +28,17 @@ namespace CBIT_group8
                 string sql = "SELECT name FROM user WHERE email='" + CBowner + "';";
                 lblName.Text = (_mysqlhandler.SelectFromDB(sql).Rows[0][0]).ToString();
 
+                // Determine if the user is already following the CorkBoard owner
+                sql = "SELECT * FROM follow WHERE email = '" + user + "' AND follows = '" + CBowner + "';";
+                DataTable resultFollow = _mysqlhandler.SelectFromDB(sql);
+
+                // If he is, then disable the Follow button and make it read Following 
+                if (resultFollow.Rows.Count > 0)
+                {
+                    btnFollow.Text = "Following";
+                    btnFollow.Enabled = false;
+                }
+
                 //Get Pushpin DateTime
                 sql = "SELECT datetime FROM pushpin WHERE CBowner='" + CBowner + "' AND CBtitle='" + CBtitle + "' AND link='" + PPlink + "';";
                 lblDateTime.Text = (_mysqlhandler.SelectFromDB(sql).Rows[0][0]).ToString();
@@ -123,6 +134,17 @@ namespace CBIT_group8
                 sql = "DELETE FROM likes WHERE email='" + user + "' AND CBowner = '" + CBowner + "' AND CBtitle = '" + CBtitle + "' AND link = '" + PPlink + "';";
             _mysqlhandler.InsertIntoDB(sql);
             getLikes();
+        }
+
+        protected void btnFollow_Click(object sender, EventArgs e)
+        {
+            string sql = "INSERT INTO follow (email, follows) VALUES ('" + user
+                 + "','" + CBowner + "');";
+            _mysqlhandler.InsertIntoDB(sql);
+
+            // disable the Follow button and make it read Following
+            btnFollow.Text = "Following";
+            btnFollow.Enabled = false;
         }
 
 

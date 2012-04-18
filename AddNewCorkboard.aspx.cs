@@ -29,20 +29,31 @@ namespace CBIT_group8
 
             string sql = "INSERT INTO  corkboard (owner,title,lastupdate,category) VALUES ('" + user +
                     "','" + txtTitle.Text + "',NULL,'" + ddlCategory.SelectedItem.ToString() + "');";
-            _mysqlhandler.InsertIntoDB(sql);
-
-            if (rbPublic.Checked == true)
+            if (_mysqlhandler.InsertIntoDB(sql) == 0)
             {
-                sql = "INSERT INTO  publicCB (owner,title) VALUES ('" + user + "', '" + txtTitle.Text + "');";
-                _mysqlhandler.InsertIntoDB(sql);
+
+                if (rbPublic.Checked == true)
+                {
+                    sql = "INSERT INTO  publicCB (owner,title) VALUES ('" + user + "', '" + txtTitle.Text + "');";
+                    _mysqlhandler.InsertIntoDB(sql);
+                }
+                else
+                {
+                    sql = "INSERT INTO  privateCB (owner,title,password) VALUES ('" + user + "','" + txtTitle.Text + "','" + txtPassword.Text + "');";
+                    _mysqlhandler.InsertIntoDB(sql);
+                }
+                Response.Redirect("Homepage.aspx");
             }
             else
             {
-                sql = "INSERT INTO  privateCB (owner,title,password) VALUES ('" + user + "','" + txtTitle.Text + "','" + txtPassword.Text + "');";
-                _mysqlhandler.InsertIntoDB(sql);
+                Response.Write("<script type='text/javascript'>alert('There was a error in your entry, please try again!!');</script>");
+                txtPassword.Text = string.Empty;
+                txtTitle.Text = string.Empty;
+                txtPassword.Text = string.Empty;
+                txtPassword.Enabled = false;
+                rbPublic.Checked = true;
             }
-
-            Response.Redirect("Homepage.aspx");
+            
         }
 
         protected void rbPrivate_CheckedChanged(object sender, EventArgs e)

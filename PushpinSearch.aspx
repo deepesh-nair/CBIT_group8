@@ -8,7 +8,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <h2>CORKBOARDIT</h2>
+    <h2>CORKBOARDIT<asp:HyperLink ID="HyperLink1" ImageUrl="http://edmontonlocal.mobi/templates/mobiview/images/home.png" Text="Go to Homepage" runat="server" NavigateUrl="Homepage.aspx"></asp:HyperLink></h2>
     <div>
     <h4>Pushpin Search Results</h4>
     <br /><br />

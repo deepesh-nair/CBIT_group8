@@ -59,6 +59,7 @@
   <ItemGroup>
     <Content Include="AddNewCorkboard.aspx" />
     <Content Include="AddPushpin.aspx" />
+    <Content Include="CheckPassword.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Homepage.aspx" />
     <Content Include="Login.aspx" />
@@ -91,6 +92,13 @@
     </Compile>
     <Compile Include="AddPushpin.aspx.designer.cs">
       <DependentUpon>AddPushpin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CheckPassword.aspx.cs">
+      <DependentUpon>CheckPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CheckPassword.aspx.designer.cs">
+      <DependentUpon>CheckPassword.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <SubType>ASPXCodeBehind</SubType>

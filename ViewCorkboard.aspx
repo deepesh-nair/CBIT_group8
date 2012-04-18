@@ -11,16 +11,16 @@
     <asp:ScriptManager runat="server"></asp:ScriptManager>
     <h2>CORKBOARDIT <asp:HyperLink ID="HyperLink1" ImageUrl="http://edmontonlocal.mobi/templates/mobiview/images/home.png" Text="Go to Homepage" runat="server" NavigateUrl="Homepage.aspx"></asp:HyperLink></h2>    
     <div>
+        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+        <ContentTemplate>
         <asp:Label ID="lblName" runat="server"></asp:Label>
         &nbsp;
-        <asp:UpdatePanel runat="server">
-        <ContentTemplate>
         <asp:Button ID="btnFollow" Text="Follow" runat="server" 
-            onclick="btnFollow_Click" />
-            </ContentTemplate>
-            </asp:UpdatePanel>
+            onclick="btnFollow_Click" />            
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:Label ID="lblCategory" runat="server"></asp:Label>
+        </ContentTemplate>
+            </asp:UpdatePanel>
         <br />
         <br />
         <asp:Label ID="lblCBtitle" runat="server"></asp:Label>

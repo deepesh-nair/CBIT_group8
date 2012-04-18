@@ -9,6 +9,7 @@
 <body>
     <form id="form1" runat="server">
       <asp:ScriptManager ID="ScriptManager1" runat="server"/>
+      <h2>CORKBOARDIT <asp:HyperLink ID="HyperLink1" ImageUrl="http://edmontonlocal.mobi/templates/mobiview/images/home.png" Text="Go to Homepage" runat="server" NavigateUrl="Homepage.aspx"></asp:HyperLink></h2>
     <div>
         <asp:Label runat = "server" ID = "lblCB" >Add Corkboard </asp:Label>
         <br />
@@ -27,7 +28,7 @@
           <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
         <asp:RadioButton runat ="server"  ID = "rbPublic" GroupName = "publicOrPvt" 
-                Text = "Public" AutoPostBack="true" oncheckedchanged="rbPublic_CheckedChanged"/>
+                Text = "Public" AutoPostBack="true" oncheckedchanged="rbPublic_CheckedChanged" Checked="True"/>
         <br />
             <asp:RadioButton runat = "server" ID = "rbPrivate" GroupName = "publicOrPvt" 
                 Text = "Private" AutoPostBack="true" 

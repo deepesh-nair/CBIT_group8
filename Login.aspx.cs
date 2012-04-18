@@ -31,6 +31,7 @@ namespace CBIT_group8
             {
                 Session["user"] = txtEmail.Text;
                 Session["isLoggedIn"] = true;
+                Session["hasPvtAccess"] = false;
                 Response.Redirect("Homepage.aspx");                
             }
             else

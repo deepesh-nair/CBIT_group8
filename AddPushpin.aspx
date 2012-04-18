@@ -8,10 +8,10 @@
 </head>
 <body>
     <form id="form1" runat="server">
+    <h2>CORKBOARDIT <asp:HyperLink ID="HyperLink1" ImageUrl="http://edmontonlocal.mobi/templates/mobiview/images/home.png" Text="Go to Homepage" runat="server" NavigateUrl="Homepage.aspx"></asp:HyperLink></h2>
     <div>
         <asp:Label runat = "server" ID = "lblAddPP" Text = "Add PushPin"></asp:Label>
         <br />
-        <asp:Label runat = "server" ID = "lblCBName" Text = "G"></asp:Label>
         <br />
         <asp:Label runat = "server" ID = "lblURL" Text = "URL"></asp:Label>
         <asp:TextBox runat = "server" ID = "txtURL"></asp:TextBox>
