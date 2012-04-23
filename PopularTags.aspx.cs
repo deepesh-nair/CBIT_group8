@@ -30,8 +30,13 @@ namespace CBIT_group8
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
-                e.Row.Attributes.Add("onmouseover", "this.style.cursor='pointer'");
-                e.Row.Attributes.Add("onmousedown", "if(event.button==0){window.location='PushpinSearch.aspx?keyword=" + dtTags.Rows[e.Row.RowIndex][0].ToString() + "'}");
+                e.Row.Cells[0].Attributes.Add("onmouseover", "this.style.cursor='pointer'");
+                e.Row.Cells[0].Attributes.Add("onmousedown", "if(event.button==0){window.location='PushpinSearch.aspx?keyword=" + dtTags.Rows[e.Row.RowIndex][0].ToString() + "'}");
+                e.Row.Cells[0].Font.Underline = true;                
+                e.Row.Cells[0].ForeColor = System.Drawing.Color.Blue;
+               
+                //e.Row.Attributes.Add("onmouseover", "this.style.cursor='pointer'");
+                //e.Row.Attributes.Add("onmousedown", "if(event.button==0){window.location='PushpinSearch.aspx?keyword=" + dtTags.Rows[e.Row.RowIndex][0].ToString() + "'}");
             }
         }
     }

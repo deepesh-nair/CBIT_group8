@@ -28,6 +28,10 @@ namespace CBIT_group8
                 string sql = "SELECT name FROM user WHERE email='" + CBowner + "';";
                 lblName.Text = (_mysqlhandler.SelectFromDB(sql).Rows[0][0]).ToString();
 
+                //Determine if user is the owner of CB and if so, disable Follow button
+                if (user == CBowner)
+                    btnFollow.Enabled = false;
+                
                 // Determine if the user is already following the CorkBoard owner
                 sql = "SELECT * FROM follow WHERE email = '" + user + "' AND follows = '" + CBowner + "';";
                 DataTable resultFollow = _mysqlhandler.SelectFromDB(sql);

@@ -38,8 +38,13 @@ namespace CBIT_group8
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
-                e.Row.Attributes.Add("onmouseover", "this.style.cursor='pointer'");
-                e.Row.Attributes.Add("onmousedown", "if(event.button==0){window.location='ViewPushpin.aspx?CBowner=" + dtSearch.Rows[e.Row.RowIndex][4].ToString() + "&CBtitle=" + dtSearch.Rows[e.Row.RowIndex][1].ToString() + "&link=" + dtSearch.Rows[e.Row.RowIndex][3].ToString() + "'}");
+                e.Row.Cells[0].Attributes.Add("onmouseover", "this.style.cursor='pointer'");
+                e.Row.Cells[0].Attributes.Add("onmousedown", "if(event.button==0){window.location='ViewPushpin.aspx?CBowner=" + dtSearch.Rows[e.Row.RowIndex][4].ToString() + "&CBtitle=" + dtSearch.Rows[e.Row.RowIndex][1].ToString() + "&link=" + dtSearch.Rows[e.Row.RowIndex][3].ToString() + "'}");
+                e.Row.Cells[0].Font.Underline = true;
+                e.Row.Cells[0].ForeColor = System.Drawing.Color.Blue;
+                
+                //e.Row.Attributes.Add("onmouseover", "this.style.cursor='pointer'");
+                //e.Row.Attributes.Add("onmousedown", "if(event.button==0){window.location='ViewPushpin.aspx?CBowner=" + dtSearch.Rows[e.Row.RowIndex][4].ToString() + "&CBtitle=" + dtSearch.Rows[e.Row.RowIndex][1].ToString() + "&link=" + dtSearch.Rows[e.Row.RowIndex][3].ToString() + "'}");
             }
         }
     }

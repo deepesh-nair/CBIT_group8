@@ -2,13 +2,17 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+
 <html xmlns="http://www.w3.org/1999/xhtml">
+
 <head runat="server">
-    <title></title>
+    <title></title> 
+    <link href="CSS/styles.css" rel="stylesheet" type="text/css" />    
 </head>
 <body>
     <form id="form1" runat="server">
     <asp:ScriptManager runat="server"></asp:ScriptManager>
+
     <h2>CORKBOARDIT <asp:HyperLink ID="HyperLink1" ImageUrl="http://edmontonlocal.mobi/templates/mobiview/images/home.png" Text="Go to Homepage" runat="server" NavigateUrl="Homepage.aspx"></asp:HyperLink></h2>    
     <div>
         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
@@ -32,7 +36,7 @@
     </div>
     <div>
     <br /><br />
-        <asp:PlaceHolder ID="phImageHolder" runat="server"></asp:PlaceHolder>
+        <asp:PlaceHolder ID="phImageHolder" runat="server" ></asp:PlaceHolder>
         <br /><br />
     </div>
       <p>

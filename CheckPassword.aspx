@@ -13,7 +13,7 @@
     This Corkboard is Private. Please Enter the Password to view it:
         <br />
     <br />
-    Password: <asp:TextBox ID="txtpass" runat="server"></asp:TextBox>
+    Password: <asp:TextBox ID="txtpass" runat="server" TextMode="Password"></asp:TextBox>
         <br />
         <br />
         <asp:Label ID="lblResult" runat="server" ForeColor="Red"></asp:Label>

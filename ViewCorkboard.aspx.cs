@@ -25,6 +25,8 @@ namespace CBIT_group8
             {
                 CheckForPrivateCB();
 
+                //btnAddPp.CssClass = ".imagemargin";
+
                 //get CBowner's name
                 string sql = "SELECT name FROM user WHERE email='"+CBowner+"';";
                 lblName.Text = (_mysqlhandler.SelectFromDB(sql).Rows[0][0]).ToString();
@@ -45,8 +47,8 @@ namespace CBIT_group8
                 else
                 {
                     btnAddPp.Enabled = false;
-                    btnWatch.Enabled = true;
-                    btnFollow.Enabled = true;
+                    //btnWatch.Enabled = true;
+                   // btnFollow.Enabled = true;
                 }
 
                 // Determine if the user is already following the CorkBoard owner
@@ -97,7 +99,9 @@ namespace CBIT_group8
                         dynamicimage.ImageUrl = links.Rows[i][0].ToString();
                         dynamicimage.NavigateUrl = "ViewPushpin.aspx?CBowner=" + CBowner + "&Cbtitle=" + Cbtitle + "&link=" + links.Rows[i][0].ToString();
                         dynamicimage.Text = "Dead Image URL :x";
-                        phImageHolder.Controls.Add(dynamicimage);
+
+                        dynamicimage.CssClass = "imagemargin";
+                        phImageHolder.Controls.Add(dynamicimage);                        
                     }
                 }
             }          
@@ -108,7 +112,7 @@ namespace CBIT_group8
             string sql = "SELECT * FROM privateCB WHERE owner='"+CBowner+"' AND title='"+Cbtitle+"';";
             if (_mysqlhandler.SelectFromDB(sql).Rows.Count > 0)
             {
-                btnWatch.Enabled = false; ;
+                btnWatch.Enabled = false;
                 if ((bool)Session["hasPvtAccess"] == false)
                     Response.Redirect("CheckPassword.aspx?CBowner=" + CBowner + "&Cbtitle=" + Cbtitle);
             }

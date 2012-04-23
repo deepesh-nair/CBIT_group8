@@ -24,11 +24,12 @@
     <title></title>
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="form1" runat="server" defaultbutton="btnSearch">
     <div>
         <h2>CORKBOARDIT  <asp:HyperLink ID="HyperLink1" runat="server" ImageUrl="http://www.digitaldarkness.com/images/logout.bw.png" Text="Log Out" NavigateUrl="~/Login.aspx"></asp:HyperLink></h2>
         <br />
-        Home page for <asp:Label runat="server" ID="lblName" ></asp:Label>       
+        Home page for <asp:Label runat="server" ID="lblName" Font-Bold="True" 
+            ForeColor="Red" Font-Size="Large"></asp:Label>       
     </div>
     <br />
     <br />
@@ -62,7 +63,7 @@
     <asp:TextBox ID="txtSearch" runat="server" onkeyup="SetButtonStatus(this, 'btnSearch')"></asp:TextBox>
     &nbsp;
     <asp:Button ID="btnSearch" runat="server" Text="PushPin Search" 
-            onclick="btnSearch_Click"  Enabled="false"/>
+            onclick="btnSearch_Click"  Enabled="false" />
     </div>
     </form>
 </body>

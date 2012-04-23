@@ -60,6 +60,7 @@
     <Content Include="AddNewCorkboard.aspx" />
     <Content Include="AddPushpin.aspx" />
     <Content Include="CheckPassword.aspx" />
+    <Content Include="CSS\styles.css" />
     <Content Include="Default.aspx" />
     <Content Include="Homepage.aspx" />
     <Content Include="Login.aspx" />
