@@ -31,7 +31,8 @@ namespace CBIT_group8
 
             //string datetimeformat = "MMM d yyyy at HH:mm ";
 
-            sql = "SELECT DISTINCT CBtitle, name, email, datetime FROM (SELECT * FROM pushpin  WHERE CBOwner IN (SELECT Follows FROM follow WHERE email = '"+user+"') OR CBOwner = '"+user+"' OR CBTitle IN (SELECT CBTitle FROM watchList WHERE WatcherEmail = '"+user+"')) AS R INNER JOIN user ON R.CBowner=user.email ORDER BY DateTime DESC LIMIT 4;";
+            //sql = "SELECT DISTINCT CBtitle, name, email, datetime FROM (SELECT * FROM pushpin  WHERE CBOwner IN (SELECT Follows FROM follow WHERE email = '"+user+"') OR CBOwner = '"+user+"' OR CBTitle IN (SELECT CBTitle FROM watchList WHERE WatcherEmail = '"+user+"')) AS R INNER JOIN user ON R.CBowner=user.email ORDER BY DateTime DESC LIMIT 4;";
+            sql = "SELECT DISTINCT CBtitle, name, email, datetime FROM (SELECT description, CBtitle, name, email, datetime FROM ( SELECT * FROM ( SELECT * FROM pushpin WHERE CBOwner IN (SELECT Follows FROM follow WHERE email = '"+user+"' OR CBOwner = '"+user+"' OR CBTitle IN (SELECT CBTitle FROM watchList WHERE WatcherEmail = '"+user+"') AND CBOwner IN (SELECT CBOwner FROM watchList WHERE WatcherEmail = '"+user+"'))) AS R INNER JOIN user ON R.CBowner=user.email) AS T WHERE (CBowner, CBtitle) IN (SELECT owner AS CBowner, title AS CBtitle FROM publicCB WHERE TRUE) ) AS S ORDER BY datetime DESC LIMIT 4;";
             recentCB = _mysqlhandler.SelectFromDB(sql);
             //recentCB.Columns.Add();
 
