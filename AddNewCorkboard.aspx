@@ -14,7 +14,7 @@
         <asp:Label runat = "server" ID = "lblCB" >Add Corkboard </asp:Label>
         <br />
         <asp:Label runat = "server" ID = "lblTitle" >Title</asp:Label>
-        <asp:TextBox runat = "server" ID = "txtTitle"></asp:TextBox>
+        <asp:TextBox runat = "server" ID = "txtTitle" MaxLength="30"></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtTitle" ErrorMessage="Title is mandatory"></asp:RequiredFieldValidator>
         <br />
         <asp:Label runat = "server" ID = "lblCategory" >Category</asp:Label>

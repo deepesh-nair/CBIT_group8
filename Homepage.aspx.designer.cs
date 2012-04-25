@@ -58,6 +58,15 @@ namespace CBIT_group8 {
         protected global::System.Web.UI.WebControls.GridView gvRecentCB;
         
         /// <summary>
+        /// lblRecentCB control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblRecentCB;
+        
+        /// <summary>
         /// btnAddCB control.
         /// </summary>
         /// <remarks>

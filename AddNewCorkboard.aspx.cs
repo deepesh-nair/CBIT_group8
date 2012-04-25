@@ -42,7 +42,7 @@ namespace CBIT_group8
                     sql = "INSERT INTO  privateCB (owner,title,password) VALUES ('" + user + "','" + txtTitle.Text + "','" + txtPassword.Text + "');";
                     _mysqlhandler.InsertIntoDB(sql);
                 }
-                Response.Redirect("Homepage.aspx");
+                Response.Redirect("ViewCorkboard.aspx?CBowner="+user+"&Cbtitle="+txtTitle.Text);
             }
             else
             {

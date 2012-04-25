@@ -37,13 +37,16 @@ namespace CBIT_group8
             recentCB = _mysqlhandler.SelectFromDB(sql);
             //recentCB.Columns.Add();
 
+            if (recentCB.Rows.Count == 0)
+                lblRecentCB.Text = "There are no updates at this time";
+
             DataTable recentCBdatasrc = new DataTable();
             recentCBdatasrc.Columns.Add();
             recentCBdatasrc.Columns.Add();
             for (int i=0; i<recentCB.Rows.Count;i++)
             {
                 recentCBdatasrc.Rows.Add();
-                recentCBdatasrc.Rows[i][0] = recentCB.Rows[i][0].ToString()+"\n\n Updated by "+recentCB.Rows[i][1].ToString()+" on " + recentCB.Rows[i][3].ToString();
+                recentCBdatasrc.Rows[i][0] = recentCB.Rows[i][0].ToString()+" ----- Updated by "+recentCB.Rows[i][1].ToString()+" on " + recentCB.Rows[i][3].ToString();
                 sql = "SELECT * FROM publicCB WHERE owner='" + recentCB.Rows[i][2].ToString() + "' AND title='" + recentCB.Rows[i][0].ToString() + "';";
                 if (_mysqlhandler.SelectFromDB(sql).Rows.Count > 0)
                 {
@@ -81,7 +84,7 @@ namespace CBIT_group8
             for (int i = 0; i < myCB.Rows.Count; i++)
             {
                 myCBdatasrc.Rows.Add();
-                myCBdatasrc.Rows[i][0] = myCB.Rows[i][0].ToString() + "\n\n with " + myCB.Rows[i][1].ToString() + " PushPin(s)";
+                myCBdatasrc.Rows[i][0] = myCB.Rows[i][0].ToString() + " ----- with " + myCB.Rows[i][1].ToString() + " PushPin(s)";
                 sql = "SELECT * FROM publicCB WHERE owner='" + user + "' AND title='" + myCB.Rows[i][0].ToString() + "';";
                 if (_mysqlhandler.SelectFromDB(sql).Rows.Count > 0)
                 {

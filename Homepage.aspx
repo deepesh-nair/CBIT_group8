@@ -42,6 +42,7 @@
         <asp:GridView ID="gvRecentCB" runat="server" ShowHeader="false" 
         onrowdatabound="gvRecentCB_RowDataBound" >        
         </asp:GridView>
+        <asp:Label ID="lblRecentCB" runat="server"></asp:Label>
     </div>
     <br />
     <div>

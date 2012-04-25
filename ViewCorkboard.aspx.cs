@@ -104,8 +104,8 @@ namespace CBIT_group8
                         ImageButton dynamicimage = new ImageButton();
                         dynamicimage.ImageUrl = links.Rows[i][0].ToString();
                         dynamicimage.PostBackUrl = "ViewPushpin.aspx?CBowner=" + CBowner + "&Cbtitle=" + Cbtitle + "&link=" + links.Rows[i][0].ToString();
-                        dynamicimage.Height = Unit.Pixel(300);
-                        dynamicimage.Width = Unit.Pixel(300);
+                        dynamicimage.Height = Unit.Pixel(150);
+                        dynamicimage.Width = Unit.Pixel(150);
                         dynamicimage.CssClass = "image";
 
                         phImageHolder.Controls.Add(dynamicimage);                        
