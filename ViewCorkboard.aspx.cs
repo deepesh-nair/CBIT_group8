@@ -95,12 +95,19 @@ namespace CBIT_group8
 
                     for (int i = 0; i < links.Rows.Count; i++)
                     {
-                        HyperLink dynamicimage = new HyperLink();
-                        dynamicimage.ImageUrl = links.Rows[i][0].ToString();
+                        /*HyperLink dynamicimage = new HyperLink();
+                        dynamicimage.ImageUrl = links.Rows[i][0].ToString();                        
                         dynamicimage.NavigateUrl = "ViewPushpin.aspx?CBowner=" + CBowner + "&Cbtitle=" + Cbtitle + "&link=" + links.Rows[i][0].ToString();
                         dynamicimage.Text = "Dead Image URL :x";
+                        dynamicimage.CssClass = "image";*/
 
-                        dynamicimage.CssClass = "imagemargin";
+                        ImageButton dynamicimage = new ImageButton();
+                        dynamicimage.ImageUrl = links.Rows[i][0].ToString();
+                        dynamicimage.PostBackUrl = "ViewPushpin.aspx?CBowner=" + CBowner + "&Cbtitle=" + Cbtitle + "&link=" + links.Rows[i][0].ToString();
+                        dynamicimage.Height = Unit.Pixel(300);
+                        dynamicimage.Width = Unit.Pixel(300);
+                        dynamicimage.CssClass = "image";
+
                         phImageHolder.Controls.Add(dynamicimage);                        
                     }
                 }
